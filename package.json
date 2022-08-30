@@ -1,0 +1,14 @@
+{
+  "name": "issue-tracker",
+  "version": "1.0.0",
+  "description": "Issue/Bug tracker app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "anurag deol",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
