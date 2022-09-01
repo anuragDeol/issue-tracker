@@ -1,2 +1,21 @@
-<h1>Issue Tracker</h1>
-<h2>Development in progress...</h2>
+<div>
+    <h1>Projects</h1>
+    <form action="/projects/create" method="POST">
+        <input type="text" name="name" placeholder="Project Name" required>
+        <input type="text" name="author" placeholder="Author" required>
+        <input type="textarea" name="description" row="10" col="20" placeholder="Description" required>
+        <input type="submit" value="Add new project">
+    </form>
+</div>
+
+<div>
+    <ul>
+        <% for(project in projects) { %>
+            <li>
+                <%= project.name %>
+                <%= project.author %>
+                <%= project.description %>
+            </li>
+        <% } %>
+    </ul>
+</div>
