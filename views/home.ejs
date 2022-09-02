@@ -10,11 +10,13 @@
 
 <div>
     <ul>
-        <% for(project in projects) { %>
+        <% for(project of locals.projects) { %>
             <li>
                 <%= project.name %>
-                <%= project.author %>
-                <%= project.description %>
+                <br>
+                <small><%= project.author %></small>
+                <br>
+                <small><small><%= project.description %></small></small>
             </li>
         <% } %>
     </ul>
