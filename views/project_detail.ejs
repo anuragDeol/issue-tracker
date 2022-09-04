@@ -1,3 +1,4 @@
+<a href="/">Show all projects</a>
 <h1>Project detail page</h1>
 <p><b>Project Name:</b> <%= locals.project.name %></p>
 <p><b>Project Description:</b> <%= locals.project.description %></p>
@@ -7,15 +8,27 @@
     <form action="/projects/issues/create" method="POST">
         <input type="text" name="title" placeholder="Issue-title" required>
         <input type="text" name="description" placeholder="Describe the issue" required>
+        <!-- TODO::insert LABELS here -->
         <input type="text" name="author" placeholder="author">
         <input type="hidden" name="project" value="<%=locals.project._id%>">
-        <input type="submit" value="Add Issue">
+        <input type="submit" value="Create New Issue">
     </form>
-    <% if(!locals.project.issue) { %>
+    <% if(!locals.project.issues) { %>
         No issues :)
     <% } else { %>
         <div>
-            Looks like this project has some issue(s)!
+            <ul>
+                <% for(issue of project.issues) { %>
+                    <li>
+                        <p><b>Issue Title: </b><%= issue.title %></p>
+                        <small>
+                            <p><b>Issue description: </b><%= issue.description %></p>
+                            <p><b>Issue label(s): </b><%= issue.labels %></p>
+                            <p><b>This issue is posted by: </b><%= issue.author %></p>
+                        </small>
+                    </li>
+                <% } %>
+            </ul>
         </div>
     <% } %>
 </p>
