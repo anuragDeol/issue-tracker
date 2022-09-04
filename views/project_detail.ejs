@@ -1,0 +1,21 @@
+<h1>Project detail page</h1>
+<p><b>Project Name:</b> <%= locals.project.name %></p>
+<p><b>Project Description:</b> <%= locals.project.description %></p>
+<p><b>Project Author:</b> <%= locals.project.author %></p>
+<p>
+    <b>Issue Status:</b> 
+    <form action="/projects/issues/create" method="POST">
+        <input type="text" name="title" placeholder="Issue-title" required>
+        <input type="text" name="description" placeholder="Describe the issue" required>
+        <input type="text" name="author" placeholder="author">
+        <input type="hidden" name="project" value="<%=locals.project._id%>">
+        <input type="submit" value="Add Issue">
+    </form>
+    <% if(!locals.project.issue) { %>
+        No issues :)
+    <% } else { %>
+        <div>
+            Looks like this project has some issue(s)!
+        </div>
+    <% } %>
+</p>
