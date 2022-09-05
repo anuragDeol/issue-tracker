@@ -1,8 +1,9 @@
 const Project = require('../models/project');
 
-// takes us to the 'project' which user clicked - id of the project is passed in params
+// renders the 'project' which is clicked by user (project id is passed in req.params)
 module.exports.home = async function(req, res) {
     try {
+        // find the project (clicked by user) in the database
         let project = await Project.findById(req.params.id)
         .populate({
             path: 'issues'
@@ -16,6 +17,7 @@ module.exports.home = async function(req, res) {
     }
 }
 
+// create new project
 module.exports.create = async function(req, res) {
     await Project.create({
         name: req.body.name,

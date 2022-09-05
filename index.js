@@ -11,13 +11,14 @@ app.use(express.urlencoded({extended: false}));
 // app.use(cookieParser());
 
 
-// view engine
+// view engine - ejs
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
 // middleware to parse the request
 app.use(bodyParser.urlencoded({extended: false}));
 
+// index router
 app.use('/', require('./routes'));
 
 app.listen(port, function(err) {
