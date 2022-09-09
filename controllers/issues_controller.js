@@ -57,3 +57,12 @@ module.exports.create = async function(req, res) {
         return res.redirect('back');
     }
 }
+
+
+module.exports.filter = async function(req, res) {
+    try {
+        
+    } catch (err) {
+        console.log('error in filtering:', err);
+    }
+}

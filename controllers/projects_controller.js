@@ -8,8 +8,24 @@ module.exports.home = async function(req, res) {
         .populate({
             path: 'issues'
         });
+
+        // getting all the authors, so user can filter based upon authors
+        let authors = [];
+        for(issue of project.issues) {
+            if(authors.indexOf(issue) === -1) {
+                authors.push(issue.author);
+            }
+            else {
+                console.log("element already exist");
+            }
+        }
+        
+        // eliminating duplicates from authors[] array, using set
+        const set = new Set(authors);
+        const uniqueAuthors = [...set];
         return res.render('project_detail', {
-            project: project
+            project: project,
+            authors: uniqueAuthors
         });
     } catch (err) {
         console.log(err);

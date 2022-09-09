@@ -29,6 +29,22 @@
     <% if(!locals.project.issues) { %>
         No issues :)
     <% } else { %>
+
+        <div>
+            <b>Filter issues on the basis of following:</b>
+            <br>
+            <b>Authors:</b>
+            
+            <!-- TODO::We want to send those 'authors' which user has ticked in checkbox, to the 'action' -->
+            <form action="/projects/issues/filter/?author="">
+                <% for(author of locals.authors) { %>
+                    <input type="checkbox" name="author" value="<%=author%>">
+                    <label for="author"><%=author%></label>
+                <% } %>
+                <input type="submit">
+            </form>
+        </div>
+
         <div>
             <ul>
                 <% for(issue of project.issues) { %>
