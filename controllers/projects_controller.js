@@ -19,7 +19,6 @@ module.exports.home = async function(req, res) {
                 console.log("element already exist");
             }
         }
-        
         // eliminating duplicates from authors[] array, using set
         const set = new Set(authors);
         const uniqueAuthors = [...set];

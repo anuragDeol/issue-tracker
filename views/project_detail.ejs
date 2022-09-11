@@ -26,6 +26,7 @@
         <input type="hidden" name="project" value="<%=locals.project._id%>">
         <input type="submit" value="Create New Issue">
     </form>
+    
     <% if(!locals.project.issues) { %>
         No issues :)
     <% } else { %>
@@ -33,40 +34,70 @@
         <div>
             <b>Filter issues on the basis of following:</b>
             <br>
-            <b>Authors:</b>
             
-            <!-- TODO::We want to send those 'authors' which user has ticked in checkbox, to the 'action' -->
-            <form action="/projects/issues/filter/?author="">
-                <% for(author of locals.authors) { %>
-                    <input type="checkbox" name="author" value="<%=author%>">
-                    <label for="author"><%=author%></label>
-                <% } %>
+            <form action="/projects/issues/filter/" method="POST">
+                <b>Authors:</b>
+                <select name='author' id=''>
+                        <option value="none">Show All</option>
+                    <% for(author of locals.authors) { %>
+                        <!-- <input type="checkbox" name="author" value="<%=author%>">
+                        <label for="author"><%=author%></label> -->
+                        <option value="<%=author%>"><%=author%></option>
+                    <% } %>
+                </select>
+                <input type="hidden" name="project" value="<%=locals.project._id%>">
                 <input type="submit">
             </form>
         </div>
 
         <div>
             <ul>
-                <% for(issue of project.issues) { %>
-                    <li>
-                        <p><b>Issue Title: </b><%= issue.title %></p>
-                        <small>
-                            <p><b>Issue description: </b><%= issue.description %></p>
-                            
-                            <!-- print array of labels -->
-                            <span>Label(s):</span>
-                            <%if(issue.labels.length>0) {%>
-                                <%for(itr of issue.labels) {%>
-                                    <span><%= itr %></span>
+                <%if(!locals.issues) { %>
+                    <% for(issue of project.issues) { %>
+                        <li>
+                            <p><b>Issue Title: </b><%= issue.title %></p>
+                            <small>
+                                <p><b>Issue description: </b><%= issue.description %></p>
+                                
+                                <!-- print array of labels -->
+                                <span>Label(s):</span>
+                                <%if(issue.labels.length>0) {%>
+                                    <%for(itr of issue.labels) {%>
+                                        <span><%= itr %></span>
+                                    <% } %>
+                                <% } else { %>
+                                    <span>No Label for this issue</span>
                                 <% } %>
-                            <% } else { %>
-                                <span>No Label for this issue</span>
-                            <% } %>
 
-                            <p><b>This issue is posted by: </b><%= issue.author %></p>
-                        </small>
-                    </li>
+                                <p><b>This issue is posted by: </b><%= issue.author %></p>
+                            </small>
+                        </li>
+                    <% } %>
+
+                <% } else { %>
+                    <!-- if issues filtered on the basis of author -->
+                        <% for(issue of locals.issues) { %>
+                        <li>
+                            <p><b>Issue Title: </b><%= issue.title %></p>
+                            <small>
+                                <p><b>Issue description: </b><%= issue.description %></p>
+                                
+                                <!-- print array of labels -->
+                                <span>Label(s):</span>
+                                <%if(issue.labels.length>0) {%>
+                                    <%for(itr of issue.labels) {%>
+                                        <span><%= itr %></span>
+                                    <% } %>
+                                <% } else { %>
+                                    <span>No Label for this issue</span>
+                                <% } %>
+
+                                <p><b>This issue is posted by: </b><%= issue.author %></p>
+                            </small>
+                        </li>
+                    <% } %>
                 <% } %>
+                
             </ul>
         </div>
     <% } %>

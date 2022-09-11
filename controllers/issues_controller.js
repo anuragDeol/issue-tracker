@@ -59,9 +59,46 @@ module.exports.create = async function(req, res) {
 }
 
 
+// TODO::when adding new filter now, the filter form is getting submitted::DEBUG
 module.exports.filter = async function(req, res) {
     try {
-        
+        // console.log('filter issues by author:', req.body.author);
+
+        let project = await Project.findById(req.body.project)
+        .populate({
+            path: 'issues'
+        });
+
+        // getting all the authors, so user can filter based upon authors
+        let authors = [];
+        for(let issue of project.issues) {
+            if(authors.indexOf(issue) === -1) {
+                authors.push(issue.author);
+            }
+            else {
+                console.log("element already exist");
+            }
+        }
+
+        // eliminating duplicates from authors[] array, using set
+        const set = new Set(authors);
+        const uniqueAuthors = [...set];
+
+        // find all the issues which are posted by 'req.body.author'
+        let filteredIssues = await Issue.find({author: req.body.author});
+        if(filteredIssues.length==0) {
+            // if user removes the filter, then we need to show all issues
+            // setting filteredIssues as undefined, so that in our views file, we fetch all the issues from 'project.issues'
+            filteredIssues = undefined
+        }
+
+        // console.log(req.body.author);
+        // console.log(filteredIssues);
+        return res.render('project_detail', {
+            project: project,
+            issues: filteredIssues, // issues will be undefined if user does not want to filter
+            authors: uniqueAuthors
+        })
     } catch (err) {
         console.log('error in filtering:', err);
     }
