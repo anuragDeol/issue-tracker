@@ -34,22 +34,11 @@ module.exports.create = async function(req, res) {
                 issue.labels.push("Severity-4");
                 await issue.save();
             }
-            
-            // // DEBUG::to check if the array of labels inside 'issue' is being filled or not
-            // if(issue.labels.length>0) {
-            //     for(itr of issue.labels) {
-            //         console.log(itr + ", ");
-            //     }
-            // } else {
-            //     console.log('no label in this issue');
-            // }
-
-            // let issue = await Issue.create(req.body);
-
             // link the 'issue' with the 'project'
             project.issues.push(issue);
             project.save();
 
+            console.log('Success! New issue created and added into the database');
             return res.redirect('back');
         }
     } catch (err) {
@@ -59,11 +48,9 @@ module.exports.create = async function(req, res) {
 }
 
 
-// TODO::when adding new filter now, the filter form is getting submitted::DEBUG
 module.exports.filter = async function(req, res) {
     try {
         // console.log('filter issues by author:', req.body.author);
-
         let project = await Project.findById(req.body.project)
         .populate({
             path: 'issues'
@@ -85,18 +72,19 @@ module.exports.filter = async function(req, res) {
         const uniqueAuthors = [...set];
 
         // find all the issues which are posted by 'req.body.author'
-        let filteredIssues = await Issue.find({author: req.body.author});
+        let filteredIssues = await Issue.find({
+            author: req.body.author,
+            project: project._id
+        });
         if(filteredIssues.length==0) {
             // if user removes the filter, then we need to show all issues
             // setting filteredIssues as undefined, so that in our views file, we fetch all the issues from 'project.issues'
             filteredIssues = undefined
         }
 
-        // console.log(req.body.author);
-        // console.log(filteredIssues);
         return res.render('project_detail', {
             project: project,
-            issues: filteredIssues, // issues will be undefined if user does not want to filter
+            filteredIssues: filteredIssues, // issues will be undefined if user does not want to filter
             authors: uniqueAuthors
         })
     } catch (err) {

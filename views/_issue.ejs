@@ -1,0 +1,16 @@
+<li>
+    <p><b>Issue Title: </b><%= issue.title %></p>
+    <small>
+        <p><b>Issue description: </b><%= issue.description %></p>
+        <span>Label(s):</span>
+        <%if(issue.labels && issue.labels.length>0) {%>
+            <!-- print array of labels -->
+            <%for(itr of issue.labels) {%>
+                <span><%= itr %></span>
+            <% } %>
+        <% } else { %>
+            <span>No Label for this issue</span>
+        <% } %>
+        <p><b>This issue is posted by: </b><%= issue.author %></p>
+    </small>
+</li>

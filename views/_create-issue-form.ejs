@@ -1,0 +1,19 @@
+<form action="/projects/issues/create" method="POST">
+    <input type="text" name="title" placeholder="Issue-title" required>
+    <input type="text" name="description" placeholder="Describe the issue" required>
+    <span>
+        Add Labels:
+        <input type="checkbox" name="issueLabelOne">
+        <label for="issueLabelOne">Severity-1</label>
+        <input type="checkbox" name="issueLabelTwo">
+        <label for="issueLabelTwo">Severity-2</label>
+        <input type="checkbox" name="issueLabelThree">
+        <label for="issueLabelThree">Severity-3</label>
+        <input type="checkbox" name="issueLabelFour">
+        <label for="issueLabelFour">Severity-4</label>
+    </span>
+    <input type="text" name="author" placeholder="author" required>
+    <input type="hidden" name="project" value="<%=locals.project._id%>">
+    <!-- <input type="submit" value="Create New Issue"> -->
+    <button>Create-New-Issue</button>
+</form>
