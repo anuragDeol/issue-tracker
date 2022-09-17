@@ -3,7 +3,7 @@
     <br>
     <form action="/projects/issues/filter" method="POST">
         <b>Authors:</b>
-        <select name='author' id=''>
+        <select name='filterAuthor' id=''>
             <option value="none">Show All</option>
             <% for(author of locals.authors) { %>
                 <option value="<%=author%>"><%=author%></option>

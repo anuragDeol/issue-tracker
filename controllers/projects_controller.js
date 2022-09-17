@@ -28,7 +28,7 @@ module.exports.home = async function(req, res) {
         });
     } catch (err) {
         console.log(err);
-        return;
+        return res.redirect('back');
     }
 }
 
@@ -42,3 +42,4 @@ module.exports.create = async function(req, res) {
 
     return res.redirect('back');
 }
+

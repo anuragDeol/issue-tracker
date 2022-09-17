@@ -8,24 +8,28 @@
 <!-- SECTION::Issues of this Project -->
 <div>
     <b>Issue Status:</b> 
+
     <!-- FORM::TO CREATE NEW ISSUE -->
     <%- include('_create-issue-form') -%>
 
     <!-- FORM::TO FILTER ISSUES -->
     <%- include('_filter-issue-form') -%>
 
+
     <!-- SECTION::List of issues -->
     <div>
         <ul>
-            <!-- TODO::you can add an if condition here, i.e if no issues are there for this prject, you may show no issues here :) -->
+            <!-- TODO::add an if condition here, i.e if no issues are there for this prject, you may show no issues here :) -->
             
             <!-- SECTION::showing all issues under current project -->
             <%if(!locals.filteredIssues) { %>
+                <h4>Showing All Issues</h4>
                 <% for(issue of project.issues) { %>
                     <%- include('_issue') -%>
                 <% } %>
             <!-- SECTION::showing only filtered issues -->
             <% } else { %>
+                <h4>Showing Filtered Issues</h4>
                 <% for(issue of locals.filteredIssues) { %>
                     <%- include('_issue') -%>
                 <% } %>

@@ -6,7 +6,11 @@ module.exports.create = async function(req, res) {
     // console.log(req.body);
     try{
         // check if the project id (in which user wants to add new issue), is valid
-        let project = await Project.findById(req.body.project);
+        let project = await Project.findById(req.body.project)
+        .populate({
+            path: 'issues'
+        });
+        
         if(project) {
             // if yes then create new 'issue' document and add it in 'Issue' model
             let issue = await Issue.create({
@@ -39,7 +43,28 @@ module.exports.create = async function(req, res) {
             project.save();
 
             console.log('Success! New issue created and added into the database');
-            return res.redirect('back');
+
+            // return res.redirect('back');
+            
+            // getting all the authors, so user can filter based upon authors
+            let authors = [];
+            for(issue of project.issues) {
+                if(authors.indexOf(issue) === -1) {
+                    authors.push(issue.author);
+                }
+                else {
+                    console.log("element already exist");
+                }
+            }
+            // eliminating duplicates from authors[] array, using set
+            const set = new Set(authors);
+            const uniqueAuthors = [...set];
+            
+            console.log(project.issues);
+            return res.render('project_detail', {
+                project: project,
+                authors: uniqueAuthors
+            });
         }
     } catch (err) {
         console.log(err);
@@ -73,7 +98,7 @@ module.exports.filter = async function(req, res) {
 
         // find all the issues which are posted by 'req.body.author'
         let filteredIssues = await Issue.find({
-            author: req.body.author,
+            author: req.body.filterAuthor,
             project: project._id
         });
         if(filteredIssues.length==0) {
@@ -82,6 +107,7 @@ module.exports.filter = async function(req, res) {
             filteredIssues = undefined
         }
 
+
         return res.render('project_detail', {
             project: project,
             filteredIssues: filteredIssues, // issues will be undefined if user does not want to filter
@@ -89,5 +115,6 @@ module.exports.filter = async function(req, res) {
         })
     } catch (err) {
         console.log('error in filtering:', err);
+        return res.redirect('back');
     }
 }
