@@ -44,8 +44,9 @@ module.exports.create = async function(req, res) {
 
             console.log('Success! New issue created and added into the database');
 
-            // return res.redirect('back');
+            // return res.redirect('back');     // after filtering when i create new issue, this is taking me back to /issues/filter with a get request, which is giving error
             
+
             // getting all the authors, so user can filter based upon authors
             let authors = [];
             for(issue of project.issues) {
@@ -96,16 +97,49 @@ module.exports.filter = async function(req, res) {
         const set = new Set(authors);
         const uniqueAuthors = [...set];
 
-        // find all the issues which are posted by 'req.body.author'
-        let filteredIssues = await Issue.find({
-            author: req.body.filterAuthor,
-            project: project._id
-        });
-        if(filteredIssues.length==0) {
-            // if user removes the filter, then we need to show all issues
-            // setting filteredIssues as undefined, so that in our views file, we fetch all the issues from 'project.issues'
-            filteredIssues = undefined
+
+        // FILTER
+        // find all the issues which are posted by 'req.body.filterAuthor' && 'req.body.filterLabel'
+        let filteredIssues;
+        //1. no filter
+        if(!req.body.filterAuthor && !req.body.filterLabel) {
+            console.log('Line-106: No Filter');
+            filteredIssues = await Issue.find({
+                project: project._id
+            });
         }
+        //2. filter only by author
+        else if(!req.body.filterLabel) {
+            console.log('Line-113: Filter only by Author');
+            filteredIssues = await Issue.find({
+                project: project._id,
+                author: req.body.filterAuthor
+            });
+        }
+        //3. filter only by label(s)
+        else if(!req.body.filterAuthor) {
+            console.log('Line-121: Filter only Label(s)');
+            filteredIssues = await Issue.find({
+                project: project._id,
+                labels: req.body.filterLabel
+            });
+        }
+        //4. filter by both
+        else {
+            console.log('Line-128: Filter by both label(s) and author');
+            filteredIssues = await Issue.find({
+                project: project._id,
+                author: req.body.filterAuthor,
+                labels: req.body.filterLabel
+            });
+        }
+
+        // if(filteredIssues.length==0) {
+        //     // if user removes the filter, then we need to show all issues
+        //     // setting filteredIssues as undefined, so that in our views file, we fetch all the issues from 'project.issues'
+        //     filteredIssues = undefined
+        //     console.log('entered into area where we shouldnt have');
+        // }
 
 
         return res.render('project_detail', {
