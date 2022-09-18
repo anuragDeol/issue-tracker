@@ -1,5 +1,6 @@
 const Project = require('../models/project');
 const Issue = require('../models/issue');
+const home_controller = require('../controllers/home_controller')
 
 // create new issue and link newly created issue with the project (under which it is added by the user)
 module.exports.create = async function(req, res) {
@@ -152,3 +153,67 @@ module.exports.filter = async function(req, res) {
         return res.redirect('back');
     }
 }
+
+
+
+module.exports.search = async function(req, res) {
+    try {
+        let title = req.body.title;
+        let description = req.body.description;
+        
+        let filteredIssues;
+        console.log(title);
+        console.log(description);
+        if(title && description) {
+            console.log('find by title & description', title);
+            filteredIssues = await Issue.find({
+                project: req.body.project,
+                title: req.body.title,
+                description: req.body.description
+            });
+        } else if(title) {
+            console.log('find by title only', title);
+            filteredIssues = await Issue.find({
+                project: req.body.project,
+                title: req.body.title,
+            });
+        } else if (description) {
+            console.log('find by description only', description);
+            filteredIssues = await Issue.find({
+                project: req.body.project,
+                description: req.body.description,
+            });
+        }
+
+
+        let project = await Project.findById(req.body.project)
+        .populate({
+            path: 'issues'
+        });
+
+        let authors = [];
+        for(let issue of project.issues) {
+            if(authors.indexOf(issue) === -1) {
+                authors.push(issue.author);
+            }
+            else {
+                console.log("element already exist");
+            }
+        }
+
+        const set = new Set(authors);
+        const uniqueAuthors = [...set];
+
+        return res.render('project_detail', {
+            project: project,
+            authors: uniqueAuthors,
+            filteredIssues: filteredIssues
+        })
+    } catch (err) {
+        console.log('error in filtering:', err);
+        return res.redirect('back');
+    }
+
+}
+
+
