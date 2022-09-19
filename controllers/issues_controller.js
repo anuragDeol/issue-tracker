@@ -104,35 +104,57 @@ module.exports.filter = async function(req, res) {
         let filteredIssues;
         //1. no filter
         if(!req.body.filterAuthor && !req.body.filterLabel) {
-            console.log('Line-106: No Filter');
+            console.log('No Filter');
             filteredIssues = await Issue.find({
                 project: project._id
             });
         }
         //2. filter only by author
         else if(!req.body.filterLabel) {
-            console.log('Line-113: Filter only by Author');
+            console.log('Filter only by Author');
             filteredIssues = await Issue.find({
                 project: project._id,
                 author: req.body.filterAuthor
             });
         }
-        //3. filter only by label(s)
+        //3. filter by Lable(s)
         else if(!req.body.filterAuthor) {
-            console.log('Line-121: Filter only Label(s)');
-            filteredIssues = await Issue.find({
-                project: project._id,
-                labels: req.body.filterLabel
-            });
+            //3. filter by only one label
+            if(typeof(req.body.filterLabel) == "string") {
+                console.log('Filter by only one label');
+                filteredIssues = await Issue.find({
+                    project: project._id,
+                    labels: [req.body.filterLabel]
+                });
+            } else {
+                // 3b. filter by multiple labels
+                console.log('Filter by multiple labels');
+                filteredIssues = await Issue.find({
+                    project: project._id,
+                    labels: req.body.filterLabel
+                });
+            }
         }
         //4. filter by both
         else {
-            console.log('Line-128: Filter by both label(s) and author');
-            filteredIssues = await Issue.find({
-                project: project._id,
-                author: req.body.filterAuthor,
-                labels: req.body.filterLabel
-            });
+            console.log('Filter by both author and one label');
+            //4a. author and one label
+            if(typeof(req.body.filterLabel) == "string") {
+                console.log('Filter by both author and one label');
+                filteredIssues = await Issue.find({
+                    project: project._id,
+                    author: req.body.filterAuthor,
+                    labels: [req.body.filterLabel]
+                });
+            } else {
+                //4b. author and multiple labels
+                console.log('Filter by both author and multiple labels');
+                filteredIssues = await Issue.find({
+                    project: project._id,
+                    author: req.body.filterAuthor,
+                    labels: req.body.filterLabel
+                });
+            }
         }
 
         // if(filteredIssues.length==0) {
