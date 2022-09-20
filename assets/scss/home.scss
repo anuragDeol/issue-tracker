@@ -1,0 +1,65 @@
+#projects-home {
+    display: flex;
+    // justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    #project-form-container {
+        border: 1.5px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35%;
+        margin: 0 2%;
+        padding: 1%;
+        border: 1.5px solid black;
+        border-radius: 5px;
+        // background-color: rgb(187,175,220);  // lavender-ish color
+        form {
+            width: 90%;
+            margin: 0;
+            // border: 2px solid black;
+            input {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 2%;
+                margin: 4% 0;
+                font-size: 0.9rem;
+                border: 1px solid rgb(142, 142, 142);
+                border-radius: 4px;
+                // ::-webkit-input-placeholder {
+                //     text-align: center;
+                // }
+                transition: 0.3s;
+            }
+            input:hover {
+                border-color: rgb(225, 218, 252);
+            }
+            #create-project-btn {
+                margin-top: 15%;
+                transition: 0.3s;
+                width: 50%;
+                margin-left: 25%;
+            }
+            
+            #create-project-btn:hover {
+                cursor: pointer;
+                background-color: rgb(174, 174, 174);
+                color: white;
+                transition: 0.3s;
+            }
+        }
+    }
+    #projects-list-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1.5px solid black;
+        ul {
+            border: 2px solid black;
+            li {
+                border: 2px solid black;
+            }
+        }
+    }
+}

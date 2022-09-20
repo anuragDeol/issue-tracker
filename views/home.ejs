@@ -1,25 +1,31 @@
-<div>
-    <h1>List of Projects</h1>
-    <form action="/projects/create" method="POST">
-        <input type="text" name="name" placeholder="Project Name" required>
-        <input type="text" name="author" placeholder="Author" required>
-        <input type="textarea" name="description" row="10" col="20" placeholder="Description" required>
-        <input type="submit" value="Add new project">
-    </form>
-</div>
+<link rel="stylesheet" href="/css/home.css">
+<header>
+    <h1>Projects Home Page</h1>
+</header>
 
-<div>
-    <ul>
-        <% for(project of locals.projects) { %>
-            <li>
-                <a href="/projects/<%=project._id%>">
-                    <%= project.name %>
-                    <br>
-                    <small><%= project.author %></small>
-                    <br>
-                    <small><small><%= project.description %></small></small>
-                </a>
-            </li>
-        <% } %>
-    </ul>
+<div id="projects-home">
+    <div id="project-form-container">
+        <form action="/projects/create" method="POST">
+            <input type="text" name="name" placeholder="Project Name" required>
+            <input type="text" name="author" placeholder="Author" required>
+            <input type="textarea" name="description" row="10" col="20" placeholder="Description" required>
+            <input type="submit" value="Add new project" id="create-project-btn">
+        </form>
+    </div>
+
+    <div id="projects-list-container">
+        <ul>
+            <% for(project of locals.projects) { %>
+                <li>
+                    <a href="/projects/<%=project._id%>">
+                        <%= project.name %>
+                        <br>
+                        <small><%= project.author %></small>
+                        <br>
+                        <small><small><%= project.description %></small></small>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
 </div>

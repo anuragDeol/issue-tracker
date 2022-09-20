@@ -1,0 +1,48 @@
+#projects-home {
+  display: flex;
+  align-items: center;
+  border: 2px solid black; }
+  #projects-home #project-form-container {
+    border: 1.5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    margin: 0 2%;
+    padding: 1%;
+    border: 1.5px solid black;
+    border-radius: 5px; }
+    #projects-home #project-form-container form {
+      width: 90%;
+      margin: 0; }
+      #projects-home #project-form-container form input {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 2%;
+        margin: 4% 0;
+        font-size: 0.9rem;
+        border: 1px solid #8e8e8e;
+        border-radius: 4px;
+        transition: 0.3s; }
+      #projects-home #project-form-container form input:hover {
+        border-color: #e1dafc; }
+      #projects-home #project-form-container form #create-project-btn {
+        margin-top: 15%;
+        transition: 0.3s;
+        width: 50%;
+        margin-left: 25%; }
+      #projects-home #project-form-container form #create-project-btn:hover {
+        cursor: pointer;
+        background-color: #aeaeae;
+        color: white;
+        transition: 0.3s; }
+  #projects-home #projects-list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid black; }
+    #projects-home #projects-list-container ul {
+      border: 2px solid black; }
+      #projects-home #projects-list-container ul li {
+        border: 2px solid black; }

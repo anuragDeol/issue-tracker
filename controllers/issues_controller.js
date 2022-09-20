@@ -24,6 +24,7 @@ module.exports.create = async function(req, res) {
 
             // adding labels to the issue (if user has ticked the label)
             if(req.body.issueLabelOne == 'on') {
+                console.log(req.body.issueLabelOne);
                 issue.labels.push("Severity-1");
                 await issue.save();     // using await is important here, because we are doing save() multiple times to the document in same event loop
             }
