@@ -1,7 +1,13 @@
 #projects-home {
     display: flex;
-    // justify-content: space-around;
-    align-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
+    // max-height: 100vh;
+    // min-height: 100vh;
+    background-image: url("../images/homepage_wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
     border: 2px solid black;
     #project-form-container {
         border: 1.5px solid black;
@@ -10,9 +16,12 @@
         align-items: center;
         width: 35%;
         margin: 0 2%;
+        // margin-top: 10%;
+        align-self: center;
         padding: 1%;
-        border: 1.5px solid black;
         border-radius: 5px;
+        background: inherit;
+        border: 1.5px solid black;
         // background-color: rgb(187,175,220);  // lavender-ish color
         form {
             width: 90%;
@@ -25,11 +34,14 @@
                 padding: 2%;
                 margin: 4% 0;
                 font-size: 0.9rem;
-                border: 1px solid rgb(142, 142, 142);
+                background: inherit;
+                border: none;
                 border-radius: 4px;
-                // ::-webkit-input-placeholder {
-                //     text-align: center;
-                // }
+                border-bottom: 2px solid white;
+                ::placeholder {
+                    color: white;
+                    opacity: 1;
+                }
                 transition: 0.3s;
             }
             input:hover {
@@ -51,15 +63,57 @@
         }
     }
     #projects-list-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        width: 70%;
+        height: 100%;
+        overflow: scroll;
+        background-color: rgb(34,33,40);
         border: 1.5px solid black;
         ul {
+            // display: flex;
+            // flex-direction: column;
+            // width: 100%;
+            padding: 4%;
             border: 2px solid black;
             li {
-                border: 2px solid black;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 8%;
+                border-radius: 8px;
+                list-style: none;
+                margin: 5%;
+                background-color: rgb(187,175,220);
+                // border: 2px solid black;
+                a {
+                    text-decoration: none;
+                    color: black;
+                    transition: 0.2s;
+                }
+                a:hover {
+                    color: red;
+                    transition: 0.2s;
+                }
             }
         }
     }
+}
+
+// other styles
+.font-family-bahnschrift {
+    font-family: bahnschrift;
+}
+
+.font-size-1point8rem {
+    font-size: 1.8rem;
+}
+
+.font-size-1point6rem {
+    font-size: 1.6rem;
+}
+
+.font-size-1point4rem {
+    font-size: 1.4rem;
 }
