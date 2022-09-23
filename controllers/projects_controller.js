@@ -1,4 +1,5 @@
 const Project = require('../models/project');
+const Issue = require('../models/issue');
 
 // renders the 'project' which is clicked by user (project id is passed in req.params)
 module.exports.home = async function(req, res) {
@@ -43,3 +44,15 @@ module.exports.create = async function(req, res) {
     return res.redirect('back');
 }
 
+// delete project
+module.exports.destroy = async function(req, res) {
+    // delete the project (anyone can delete it)
+    let project = await Project.findByIdAndDelete(req.params.id);
+
+    // delete associated issues
+    await Issue.deleteMany({project: req.params.id});
+
+    console.log('project and associated issues deleted');
+    
+    return res.redirect('back');
+}

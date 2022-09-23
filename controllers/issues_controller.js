@@ -120,7 +120,7 @@ module.exports.filter = async function(req, res) {
         }
         //3. filter by Lable(s)
         else if(!req.body.filterAuthor) {
-            //3. filter by only one label
+            // 3. filter by only one label
             if(typeof(req.body.filterLabel) == "string") {
                 console.log('Filter by only one label');
                 filteredIssues = await Issue.find({
@@ -135,6 +135,10 @@ module.exports.filter = async function(req, res) {
                     labels: req.body.filterLabel
                 });
             }
+            // filteredIssues = await Issue.find({
+            //     project: project._id,
+            //     labels: [req.body.filterLabel]
+            // });
         }
         //4. filter by both
         else {
@@ -156,6 +160,11 @@ module.exports.filter = async function(req, res) {
                     labels: req.body.filterLabel
                 });
             }
+            // filteredIssues = await Issue.find({
+            //     project: project._id,
+            //     author: req.body.filterAuthor,
+            //     labels: req.body.filterLabel
+            // });
         }
 
         // if(filteredIssues.length==0) {
@@ -240,3 +249,51 @@ module.exports.search = async function(req, res) {
 }
 
 
+module.exports.destroy = async function(req, res) {
+    try {
+        
+        
+
+        let issue = await Issue.findById(req.params.id);
+        if(issue) {
+            let project = await Project.findById(issue.project)
+            
+            // delete issue from database
+            issue.remove();
+
+            // unlink issue from its project
+            await Project.findByIdAndUpdate(project._id, {$pull: {issues: req.params.id}});
+            
+            // populate 'issues' in 'Project'
+            project = await Project.findById(issue.project)
+            .populate({
+                path: 'issues'
+            });
+
+
+            // getting all the authors, so user can filter based upon authors
+            let authors = [];
+            for(issue of project.issues) {
+                if(authors.indexOf(issue) === -1) {
+                    authors.push(issue.author);
+                }
+                else {
+                    console.log("element already exist");
+                }
+            }
+            // eliminating duplicates from authors[] array, using set
+            const set = new Set(authors);
+            const uniqueAuthors = [...set];
+            return res.render('project_detail', {
+                project: project,
+                authors: uniqueAuthors
+            });
+        } else {
+            console.log("invalid issue id");
+            return;
+        }
+    } catch(err) {
+        console.log("Error in deleting issue", err);
+        return;
+    }
+}

@@ -1,6 +1,7 @@
 <li>
     <p><b>Issue Title: </b><%= issue.title %></p>
     <small>
+        <a href="/projects/issues/destroy/<%=issue._id%>">Delete issue <b><%= issue.title %></b></a>
         <p><b>Issue description: </b><%= issue.description %></p>
         <span>Label(s):</span>
         <%if(issue.labels && issue.labels.length>0) {%>
