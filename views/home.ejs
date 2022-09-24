@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/home.css">
-<header>
+<!-- <header>
     <h1>Projects Home Page</h1>
-</header>
+</header> -->
 
 <div id="projects-home">
     <div id="project-form-container">
@@ -18,11 +18,11 @@
             <% for(project of locals.projects) { %>
                 <li class="font-family-bahnschrift">
                     <a href="/projects/<%=project._id%>">
-                        Project Name: <span class="font-size-1point8rem"><%= project.name %></span>
+                        Project: <span class="font-size-1point8rem"><%= project.name %></span>
                         <br>
                         Author: <small><span class="font-size-1point6rem"><%= project.author %></span></small>
                         <br>
-                        Description: <small><span class="font-size-1point4rem"><%= project.description %></span></small>
+                        Descrip: <small><span class="font-size-1point4rem"><%= project.description %></span></small>
                     </a>
                     <br>
                     <small><a href="/projects/destroy/<%=project._id%>">Delete Project</a></small>
