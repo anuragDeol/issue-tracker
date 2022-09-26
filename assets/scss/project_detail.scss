@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: aquamarine;
+    height: 50%;
+    border: 2px solid black;
+}
+
+#project-container {
+    position: fixed;
+    background-color: rgb(157, 157, 221);
+    opacity: 80%;
+    left: 35%;
+    top: 3%;
+    #create-issue-container {
+        border: 2px solid black;
+    }
+    #search-issue-container {
+        position: fixed;
+        left: 75%;
+        top: 1%;
+        border: 2px solid black;
+    }
+    #filter-issue-container {
+        border: 2px solid black;
+    }
+}
+
+#issue-list-container {
+    position: fixed;
+    left: 18%;
+    top: 45%;
+    width: 70%;
+    // min-height: 25%;
+    height: 50%;
+    overflow: scroll;
+    background-color: rgb(195, 240, 195);
+    // opacity: 70%;
+    border: 2px solid black;
+    table {
+        width: 100%;
+        // border: 2px solid black;
+        tr {
+            background-color: antiquewhite;
+        }
+        tr:nth-child(2n+1) {
+            background-color: white;
+        }
+        td {
+            text-align: center; 
+            vertical-align: middle;
+            // border-spacing: 0;
+            border: 1px solid black;
+            border-left: none;
+            border-right: none;
+        }
+        #delete-issue-btn {
+            border: none;
+            background-color: none;
+            a {
+                color: black;
+                transition: 0.1s;
+            }
+            a:hover{
+                color: red;
+                transition: 0.1s;
+            }
+        }
+    }
+    // li {
+    //     list-style: none;
+    //     #list-item-container {
+    //         display: flex;
+    //         justify-content: space-around;
+    //     }
+    // }
+}
+
+#issue-list-container::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+footer {
+    background-color: beige;
+    height: 50%;
+    border: 2px solid black;
+}

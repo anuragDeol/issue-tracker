@@ -1,8 +1,7 @@
-<!-- FORM::TO FILTER ISSUES ON THE BASIS OF AUTHOR --><div>
-<b>Filter issues on the basis of following:</b>
-    <br>
+<!-- FORM::TO FILTER ISSUES ON THE BASIS OF AUTHOR -->
+<div id="filter-issue-container">
     <form action="/projects/issues/filter" method="POST">
-        <b>Authors:</b>
+        <b>Filter by author:</b>
         <select name='filterAuthor'>
             <option value=<%undefined%>>Show All</option>
             <% for(author of locals.authors) { %>
@@ -10,12 +9,17 @@
             <% } %>
         </select>
 
-        <select name='filterLabel' multiple>
-            <option value="Severity-1">Severity-1</option>
-            <option value="Severity-2">Severity-2</option>
-            <option value="Severity-3">Severity-3</option>
-            <option value="Severity-4">Severity-4</option>
-        </select>
+        <br>
+
+        <b>Filter by label(s)</b>
+        <span id="label-container">
+            <select name='filterLabel' id="label-list" multiple>
+                <option value="Severity-1">Severity-1</option>
+                <option value="Severity-2">Severity-2</option>
+                <option value="Severity-3">Severity-3</option>
+                <option value="Severity-4">Severity-4</option>
+            </select>
+        </span>
 
         <input type="hidden" name="project" value="<%=locals.project._id%>">
         <!-- <input type="submit"> -->

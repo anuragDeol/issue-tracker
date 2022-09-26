@@ -5,10 +5,10 @@ body {
     justify-content: space-around;
     align-items: flex-start;
     background-color: #5e7280;
+    background-color: #3e3e3e;
     height: 99.3vh;
     border: 2px solid black; }
     body #projects-home #project-form-container {
-      border: 1.5px solid black;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -19,7 +19,7 @@ body {
       border-radius: 5px;
       background: inherit;
       background-color: #243445;
-      border: 1.5px solid black; }
+      background-color: #232323; }
       body #projects-home #project-form-container form {
         width: 90%;
         margin: 0; }
@@ -31,17 +31,18 @@ body {
           margin: 5% 0;
           font-size: 0.9rem;
           background-color: #818e97;
+          background-color: whitesmoke;
           color: white;
           transition: 0.3s;
           font-size: 1.5rem;
-          border: 2px solid #243445;
+          border: 2px solid #3e3e3e;
           border-radius: 6px;
           transition: 0.2s; }
         body #projects-home #project-form-container form input::placeholder {
-          color: #243445;
+          color: #1a1a1a;
           opacity: 1; }
         body #projects-home #project-form-container form input:hover {
-          border: 2px solid #818e97;
+          border: 2px solid whitesmoke;
           transition: 0.2s; }
         body #projects-home #project-form-container form #create-project-btn {
           margin-top: 15%;
@@ -51,11 +52,12 @@ body {
           color: #97a3af;
           color: white;
           background-color: #4d6074;
+          background-color: #1a1a1a;
           border-radius: 10px; }
         body #projects-home #project-form-container form #create-project-btn:hover {
           cursor: pointer;
-          border: 2px solid #818e97;
-          color: #0b2038;
+          border: 2px solid #cbccc3;
+          color: #cbccc3;
           transition: 0.1s; }
     body #projects-home #projects-list-container {
       width: 70%;
@@ -63,6 +65,7 @@ body {
       overflow: scroll;
       background-color: #e09885;
       background-color: #243445;
+      background-color: #232323;
       border: 1.5px solid black; }
       body #projects-home #projects-list-container ul {
         padding: 4%; }
@@ -75,13 +78,15 @@ body {
           list-style: none;
           margin: 5%;
           background-color: #e8b4a3;
-          background-color: #5e7280; }
+          background-color: #5e7280;
+          background-color: #3e3e3e; }
           body #projects-home #projects-list-container ul li a {
             text-decoration: none;
             color: #192430;
+            color: whitesmoke;
             transition: 0.2s; }
           body #projects-home #projects-list-container ul li a:hover {
-            color: whitesmoke;
+            color: #9fa190;
             transition: 0.1s; }
     body #projects-home #projects-list-container::-webkit-scrollbar {
       width: 0;

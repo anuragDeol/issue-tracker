@@ -1,0 +1,65 @@
+body {
+  margin: 0; }
+
+header {
+  background-color: aquamarine;
+  height: 50%;
+  border: 2px solid black; }
+
+#project-container {
+  position: fixed;
+  background-color: #9d9ddd;
+  opacity: 80%;
+  left: 35%;
+  top: 3%; }
+  #project-container #create-issue-container {
+    border: 2px solid black; }
+  #project-container #search-issue-container {
+    position: fixed;
+    left: 75%;
+    top: 1%;
+    border: 2px solid black; }
+  #project-container #filter-issue-container {
+    border: 2px solid black; }
+
+#issue-list-container {
+  position: fixed;
+  left: 18%;
+  top: 45%;
+  width: 70%;
+  height: 50%;
+  overflow: scroll;
+  background-color: #c3f0c3;
+  border: 2px solid black; }
+  #issue-list-container table {
+    width: 100%; }
+    #issue-list-container table tr {
+      background-color: antiquewhite; }
+    #issue-list-container table tr:nth-child(2n+1) {
+      background-color: white; }
+    #issue-list-container table td {
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid black;
+      border-left: none;
+      border-right: none; }
+    #issue-list-container table #delete-issue-btn {
+      border: none;
+      background-color: none; }
+      #issue-list-container table #delete-issue-btn a {
+        color: black;
+        transition: 0.1s; }
+      #issue-list-container table #delete-issue-btn a:hover {
+        color: red;
+        transition: 0.1s; }
+
+#issue-list-container::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */ }
+
+footer {
+  background-color: beige;
+  height: 50%;
+  border: 2px solid black; }

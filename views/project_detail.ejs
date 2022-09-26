@@ -1,13 +1,10 @@
+<link rel="stylesheet" href="/css/project_detail.css">
 <!-- SECTION::Project Detail -->
-<a href="/">Show all projects</a>
-<h1>Project detail page</h1>
-<p><b>Project Name:</b> <%= locals.project.name %></p>
-<p><b>Project Description:</b> <%= locals.project.description %></p>
-<p><b>Project Author:</b> <%= locals.project.author %></p>
-
-<!-- SECTION::Issues of this Project -->
-<div>
-    <b>Issue Status:</b> 
+<header>
+    <a href="/">Show all projects</a>
+</header>
+<div id="project-container">
+    <p><b>Project Name:</b> <%= locals.project.name %></p>
 
     <!-- FORM::TO CREATE NEW ISSUE -->
     <%- include('_create-issue-form') -%>
@@ -17,26 +14,38 @@
 
     <!-- FORM::TO FILTER ISSUES on the basis of author-->
     <%- include('_filter-issue-form') -%>
+</div>
 
-
+<!-- SECTION::Issues of this Project -->
+<div id="issue-list-container">
     <!-- SECTION::List of issues -->
     <div>
-        <ul>
+        <table cellspacing="0">
+            <tr>
+                <th>Issue-Title</th>
+                <th>Description</th>
+                <th>Lable(s)</th>
+                <th>Author</th>
+            </tr>
+        <!-- <ul> -->
             <!-- TODO::add an if condition here, i.e if no issues are there for this prject, you may show no issues here :) -->
             
             <!-- SECTION::showing all issues under current project -->
             <%if(!locals.filteredIssues) { %>
-                <h4>Showing All Issues</h4>
                 <% for(issue of project.issues) { %>
                     <%- include('_issue') -%>
                 <% } %>
             <!-- SECTION::showing only filtered issues -->
             <% } else { %>
-                <h4>Showing Filtered Issues</h4>
                 <% for(issue of locals.filteredIssues) { %>
                     <%- include('_issue') -%>
                 <% } %>
             <% } %>
-        </ul>
+        <!-- </ul> -->
+        </table>
     </div>
 </div>
+
+<footer>
+    
+</footer>
