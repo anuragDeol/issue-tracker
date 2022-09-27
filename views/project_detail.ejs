@@ -17,20 +17,29 @@
 </div>
 
 <!-- SECTION::Issues of this Project -->
-<div id="issue-list-container">
+<div id="issue-list-container" class="font-family-bahnschrift">
     <!-- SECTION::List of issues -->
-    <div>
-        <table cellspacing="0">
-            <tr>
+    <table cellspacing="0">
+        
+        <col style="width:24%">
+        <col style="width:24%">
+        <col style="width:24%">
+        <col style="width:24%">
+        <col style="width:4%">
+        <thead>
+            <tr id="head-row">
                 <th>Issue-Title</th>
                 <th>Description</th>
                 <th>Lable(s)</th>
                 <th>Author</th>
+                <th></th>
             </tr>
-        <!-- <ul> -->
-            <!-- TODO::add an if condition here, i.e if no issues are there for this prject, you may show no issues here :) -->
-            
-            <!-- SECTION::showing all issues under current project -->
+        </thead>
+    <!-- <ul> -->
+        <!-- TODO::add an if condition here, i.e if no issues are there for this prject, you may show no issues here :) -->
+        
+        <!-- SECTION::showing all issues under current project -->
+        <tbody>
             <%if(!locals.filteredIssues) { %>
                 <% for(issue of project.issues) { %>
                     <%- include('_issue') -%>
@@ -41,9 +50,9 @@
                     <%- include('_issue') -%>
                 <% } %>
             <% } %>
-        <!-- </ul> -->
-        </table>
-    </div>
+        </tbody>
+    <!-- </ul> -->
+    </table>
 </div>
 
 <footer>

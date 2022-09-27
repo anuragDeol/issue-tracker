@@ -24,29 +24,38 @@ header {
 
 #issue-list-container {
   position: fixed;
-  left: 18%;
+  left: 15%;
   top: 45%;
-  width: 70%;
+  width: 75%;
   height: 50%;
   overflow: scroll;
-  background-color: #c3f0c3;
+  background-color: red;
   border: 2px solid black; }
   #issue-list-container table {
-    width: 100%; }
+    width: 100%;
+    table-layout: fixed; }
+    #issue-list-container table #head-row {
+      background-color: goldenrod; }
     #issue-list-container table tr {
-      background-color: antiquewhite; }
+      background-color: antiquewhite;
+      border: 2px solid black; }
     #issue-list-container table tr:nth-child(2n+1) {
       background-color: white; }
+    #issue-list-container table tr:hover #delete-issue-btn {
+      opacity: 100%;
+      transition: 0.1s; }
     #issue-list-container table td {
       text-align: center;
       vertical-align: middle;
-      border: 1px solid black;
-      border-left: none;
-      border-right: none; }
+      padding: 1.3% 0.2%;
+      overflow-wrap: break-word; }
     #issue-list-container table #delete-issue-btn {
       border: none;
-      background-color: none; }
+      background-color: none;
+      opacity: 0;
+      transition: 0.1s; }
       #issue-list-container table #delete-issue-btn a {
+        margin-right: 8px;
         color: black;
         transition: 0.1s; }
       #issue-list-container table #delete-issue-btn a:hover {
@@ -63,3 +72,6 @@ footer {
   background-color: beige;
   height: 50%;
   border: 2px solid black; }
+
+.font-family-bahnschrift {
+  font-family: bahnschrift; }
