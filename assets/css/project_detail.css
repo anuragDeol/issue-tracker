@@ -2,42 +2,151 @@ body {
   margin: 0; }
 
 header {
-  background-color: aquamarine;
-  height: 50%;
-  border: 2px solid black; }
+  background-color: #232323;
+  height: 25vh; }
+  header a {
+    position: absolute;
+    text-decoration: none;
+    color: whitesmoke;
+    top: 1.5%;
+    left: 0.5%;
+    transition: 0.3s; }
+    header a span {
+      color: #232323;
+      transition: 0.3s; }
+  header a:hover {
+    left: 1%;
+    transition: 0.3s; }
+    header a:hover span {
+      color: white;
+      transition: 0.3s; }
 
 #project-container {
   position: fixed;
-  background-color: #9d9ddd;
-  opacity: 80%;
   left: 35%;
-  top: 3%; }
-  #project-container #create-issue-container {
-    border: 2px solid black; }
+  top: 1%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #232323;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  border-left: none;
+  border-right: none; }
+  #project-container #project-name {
+    position: fixed;
+    left: 2%;
+    top: 14.4%; }
+  #project-container #create-issue-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4% 0;
+    margin: 0; }
+  #project-container #create-issue-container form > input {
+    width: 80%;
+    text-align: center;
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 3px;
+    padding: 2%;
+    transition: 0.2s;
+    font-family: bahnschrift; }
+  #project-container #create-issue-container form > input:hover {
+    border: 2px solid white;
+    transition: 0.2s; }
+  #project-container #create-issue-container #create-issue-btn {
+    border: none;
+    border-radius: 3px;
+    padding: 2%;
+    border: 2px solid grey;
+    background-color: grey;
+    color: white;
+    transition: 0.16s; }
+  #project-container #create-issue-container #create-issue-btn:hover {
+    cursor: pointer;
+    border: 2px solid whitesmoke;
+    border-radius: 4px;
+    transition: 0.16s; }
   #project-container #search-issue-container {
     position: fixed;
-    left: 75%;
-    top: 1%;
-    border: 2px solid black; }
+    left: 84%;
+    top: 19.5%;
+    width: 15%; }
+    #project-container #search-issue-container input {
+      border-radius: 6px;
+      padding: 3%;
+      background-color: #464646;
+      border: 3px solid #232323;
+      color: white;
+      font-family: bahnschrift;
+      font-size: 0.8rem;
+      transition: 0.16s;
+      width: 81%; }
+    #project-container #search-issue-container input::placeholder {
+      color: #c3c3c3;
+      transition: 0.16s; }
+    #project-container #search-issue-container input:hover {
+      border: 3px solid #464646; }
+    #project-container #search-issue-container #search-issue-btn {
+      padding: 2%;
+      border-radius: 100%;
+      background-color: #232323;
+      color: white;
+      border: 2px solid #232323;
+      transition: 0.15s; }
+    #project-container #search-issue-container #search-issue-btn:hover {
+      cursor: pointer;
+      border: 2px solid #bdbdbd;
+      transition: 0.15s; }
   #project-container #filter-issue-container {
-    border: 2px solid black; }
+    position: fixed;
+    left: 84.2%;
+    top: 26%;
+    width: 16%; }
+    #project-container #filter-issue-container #filter-author-form select {
+      width: 75%; }
+      #project-container #filter-issue-container #filter-author-form select #select2-filter-author-list-container {
+        color: #fa5b5b; }
+    #project-container #filter-issue-container #filter-btn {
+      position: absolute;
+      top: 18%;
+      left: 77%;
+      background-color: #464646;
+      border-radius: 100%;
+      border: 2px solid #464646;
+      padding: 2.5%;
+      color: #232323;
+      font-size: 1.07rem;
+      transition: 0.16s; }
+      #project-container #filter-issue-container #filter-btn i {
+        color: white; }
+    #project-container #filter-issue-container #filter-btn:hover {
+      border-color: white;
+      cursor: pointer;
+      transition: 0.16s; }
 
 #issue-list-container {
   position: fixed;
-  left: 15%;
-  top: 45%;
+  left: 13%;
+  top: 42%;
   width: 75%;
-  height: 50%;
+  height: 57%;
   overflow: scroll;
-  background-color: red;
-  border: 2px solid black; }
+  background-color: #3e3e3e;
+  background-color: #232323;
+  border-radius: 10px; }
   #issue-list-container table {
     width: 100%;
     table-layout: fixed; }
     #issue-list-container table #head-row {
-      background-color: goldenrod; }
+      position: sticky;
+      top: 0%;
+      background-color: #232323; }
     #issue-list-container table tr {
-      background-color: antiquewhite;
+      background-color: #f7f7f8;
       border: 2px solid black; }
     #issue-list-container table tr:nth-child(2n+1) {
       background-color: white; }
@@ -59,7 +168,7 @@ header {
         color: black;
         transition: 0.1s; }
       #issue-list-container table #delete-issue-btn a:hover {
-        color: red;
+        color: #fa5b5b;
         transition: 0.1s; }
 
 #issue-list-container::-webkit-scrollbar {
@@ -69,9 +178,20 @@ header {
   /* Optional: just make scrollbar invisible */ }
 
 footer {
-  background-color: beige;
-  height: 50%;
-  border: 2px solid black; }
+  background-color: #464646;
+  height: 75vh; }
 
 .font-family-bahnschrift {
   font-family: bahnschrift; }
+
+.color-white {
+  color: white; }
+
+.color-orange {
+  color: #ffa116; }
+
+.font-family-2point5rem {
+  font-size: 2.5rem; }
+
+.font-family-1point1rem {
+  font-size: 1.1rem; }

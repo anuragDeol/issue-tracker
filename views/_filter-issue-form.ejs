@@ -1,9 +1,8 @@
 <!-- FORM::TO FILTER ISSUES ON THE BASIS OF AUTHOR -->
 <div id="filter-issue-container">
-    <form action="/projects/issues/filter" method="POST">
-        <b>Filter by author:</b>
-        <select name='filterAuthor'>
-            <option value=<%undefined%>>Show All</option>
+    <form action="/projects/issues/filter" id="filter-author-form" method="POST">
+        <select name='filterAuthor' id="filter-author-list">
+            <option value=<%undefined%>>Filter by author</option>
             <% for(author of locals.authors) { %>
                 <option value="<%=author%>"><%=author%></option>
             <% } %>
@@ -11,9 +10,9 @@
 
         <br>
 
-        <b>Filter by label(s)</b>
         <span id="label-container">
-            <select name='filterLabel' id="label-list" multiple>
+            <select name='filterLabel' id="filter-label-list" multiple>
+                <option value=<%undefined%>>Filter by Label(s)</option>
                 <option value="Severity-1">Severity-1</option>
                 <option value="Severity-2">Severity-2</option>
                 <option value="Severity-3">Severity-3</option>
@@ -22,7 +21,10 @@
         </span>
 
         <input type="hidden" name="project" value="<%=locals.project._id%>">
-        <!-- <input type="submit"> -->
-        <button>Filter</button>
+        <button id="filter-btn"><i class="fa-solid fa-filter"></i></button>
     </form>
 </div>
+
+<script>
+    
+</script>

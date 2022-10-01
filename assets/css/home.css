@@ -32,7 +32,7 @@ body {
           font-size: 0.9rem;
           background-color: #818e97;
           background-color: whitesmoke;
-          color: white;
+          color: black;
           transition: 0.3s;
           font-size: 1.5rem;
           border: 2px solid #3e3e3e;
@@ -46,48 +46,53 @@ body {
           transition: 0.2s; }
         body #projects-home #project-form-container form #create-project-btn {
           margin-top: 15%;
-          transition: 0.2s;
           width: 50%;
           margin-left: 25%;
           color: #97a3af;
           color: white;
           background-color: #4d6074;
           background-color: #1a1a1a;
-          border-radius: 10px; }
+          background-color: #232323;
+          border-radius: 10px;
+          border: 2px solid #232323;
+          transition: 0.16s; }
         body #projects-home #project-form-container form #create-project-btn:hover {
           cursor: pointer;
           border: 2px solid #cbccc3;
-          color: #cbccc3;
-          transition: 0.1s; }
+          transition: 0.16s; }
     body #projects-home #projects-list-container {
       width: 70%;
       height: 100%;
       overflow: scroll;
-      background-color: #e09885;
-      background-color: #243445;
       background-color: #232323;
       border: 1.5px solid black; }
       body #projects-home #projects-list-container ul {
-        padding: 4%; }
+        padding: 5%;
+        margin-top: 6.5%; }
         body #projects-home #projects-list-container ul li {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 8%;
           border-radius: 8px;
           list-style: none;
           margin: 5%;
-          background-color: #e8b4a3;
-          background-color: #5e7280;
-          background-color: #3e3e3e; }
+          background-color: #232323; }
           body #projects-home #projects-list-container ul li a {
             text-decoration: none;
             color: #192430;
             color: whitesmoke;
             transition: 0.2s; }
-          body #projects-home #projects-list-container ul li a:hover {
-            color: #9fa190;
+          body #projects-home #projects-list-container ul li #issue-a-tag {
+            text-align: center;
+            background-color: red;
+            padding: 10% 8%;
+            border-radius: 8px;
+            width: 83.5%;
+            background-color: #3e3e3e;
             transition: 0.1s; }
+          body #projects-home #projects-list-container ul li #issue-a-tag:hover {
+            transition: 0.1s;
+            box-shadow: 0px 0px 10px whitesmoke; }
     body #projects-home #projects-list-container::-webkit-scrollbar {
       width: 0;
       /* Remove scrollbar space */

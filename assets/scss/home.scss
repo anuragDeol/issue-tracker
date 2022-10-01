@@ -41,7 +41,7 @@ body {
                     font-size: 0.9rem;
                     background-color: rgb(129, 142, 151);
                     background-color: whitesmoke;
-                    color: white;
+                    color: black;
                     transition: 0.3s;
                     font-size: 1.5rem;
                     border: 2px solid rgb(62,62,62);
@@ -58,14 +58,16 @@ body {
                 }
                 #create-project-btn {
                     margin-top: 15%;
-                    transition: 0.2s;
                     width: 50%;
                     margin-left: 25%;
                     color:rgb(151, 163, 175);
                     color: white;
                     background-color: rgb(77, 96, 116);
                     background-color: rgb(26,26,26);
+                    background-color: rgb(35,35,35);
                     border-radius: 10px;
+                    border: 2px solid rgb(35,35,35);
+                    transition: 0.16s;
                 }
                 
                 #create-project-btn:hover {
@@ -73,8 +75,8 @@ body {
                     // background-color: rgb(36,52,69);
                     // color: white;
                     border: 2px solid rgb(203, 204, 195);
-                    color: rgb(203, 204, 195);
-                    transition: 0.1s;
+                    // color: rgb(203, 204, 195);
+                    transition: 0.16s;
                 }
             }
         }
@@ -85,8 +87,6 @@ body {
             width: 70%;
             height: 100%;
             overflow: scroll;
-            background-color: rgb(224,152,133);
-            background-color: rgb(36,52,69);
             background-color: rgb(35,35,35);
             // background-image: linear-gradient(rgb(45,47,58), rgb(198,188,180));
             border: 1.5px solid black;
@@ -94,19 +94,18 @@ body {
                 // display: flex;
                 // flex-direction: column;
                 // width: 100%;
-                padding: 4%;
+                padding: 5%;
+                margin-top: 6.5%;
                 // border: 2px solid black;
                 li {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    padding: 8%;
+                    // padding: 7%;
                     border-radius: 8px;
                     list-style: none;
                     margin: 5%;
-                    background-color: rgb(232,180,163);
-                    background-color: rgb(94,114,128);
-                    background-color: rgb(62,62,62);
+                    background-color: rgb(35,35,35);
                     // background-image: linear-gradient(rgb(255,87,96), rgb(255,82,154));
                     // border: 2px solid black;
                     a {
@@ -115,10 +114,29 @@ body {
                         color: whitesmoke;
                         transition: 0.2s;
                     }
-                    a:hover {
-                        color: rgb(159,161,144);
+                    
+                    #issue-a-tag {
+                        text-align: center;
+                        background-color: red;
+                        padding: 10% 8%;
+                        border-radius: 8px;
+                        width: 83.5%;
+                        background-color: rgb(62,62,62);
                         transition: 0.1s;
                     }
+                    #issue-a-tag:hover {
+                        transition: 0.1s;
+                        box-shadow: 0px 0px 10px whitesmoke;
+                    }
+                    // #delete-project-btn {
+                    //     // position: absolute;
+                    //     position: relative;
+                    //     bottom: 30px;
+                    //     opacity: 0;
+                    // }
+                    // #issue-a-tag:hover #delete-project-btn {
+                    //     opacity: 100%;
+                    // }
                 }
             }
         }

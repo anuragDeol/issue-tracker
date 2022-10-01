@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="/css/project_detail.css">
 <!-- SECTION::Project Detail -->
 <header>
-    <a href="/">Show all projects</a>
+    <a href="/" class="font-family-bahnschrift"><span><i class="fa-solid fa-arrow-left"></i></span>  Show All Projects</a>
+    <!-- <a href="/" class="font-family-bahnschrift"><span><i class="fa-solid fa-house"></i></span>  Home</a> -->
 </header>
-<div id="project-container">
-    <p><b>Project Name:</b> <%= locals.project.name %></p>
+<div id="project-container" class="font-family-bahnschrift">
+    <p id="project-name" class="font-family-2point5rem color-white"><b><%= locals.project.name %></b></p>
 
     <!-- FORM::TO CREATE NEW ISSUE -->
     <%- include('_create-issue-form') -%>
@@ -27,7 +28,7 @@
         <col style="width:24%">
         <col style="width:4%">
         <thead>
-            <tr id="head-row">
+            <tr id="head-row" class="color-white">
                 <th>Issue-Title</th>
                 <th>Description</th>
                 <th>Lable(s)</th>

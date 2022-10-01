@@ -190,30 +190,16 @@ module.exports.filter = async function(req, res) {
 
 module.exports.search = async function(req, res) {
     try {
-        let title = req.body.title;
-        let description = req.body.description;
-        
         let filteredIssues;
-        console.log(title);
-        console.log(description);
-        if(title && description) {
-            console.log('find by title & description', title);
+        filteredIssues = await Issue.find({
+            project: req.body.project,
+            title: req.body.search
+        });
+        console.log(filteredIssues);
+        if(filteredIssues.length==0) {
             filteredIssues = await Issue.find({
                 project: req.body.project,
-                title: req.body.title,
-                description: req.body.description
-            });
-        } else if(title) {
-            console.log('find by title only', title);
-            filteredIssues = await Issue.find({
-                project: req.body.project,
-                title: req.body.title,
-            });
-        } else if (description) {
-            console.log('find by description only', description);
-            filteredIssues = await Issue.find({
-                project: req.body.project,
-                description: req.body.description,
+                description: req.body.search
             });
         }
 

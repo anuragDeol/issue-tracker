@@ -16,17 +16,17 @@
     <div id="projects-list-container">
         <ul>
             <% for(project of locals.projects) { %>
-                <li class="font-family-bahnschrift">
-                    <a href="/projects/<%=project._id%>">
+                <a href="/projects/<%=project._id%>" id="issue-a-tag">
+                    <li class="font-family-bahnschrift">
                         Project: <span class="font-size-1point8rem"><%= project.name %></span>
                         <br>
                         Author: <small><span class="font-size-1point6rem"><%= project.author %></span></small>
                         <br>
                         Descrip: <small><span class="font-size-1point4rem"><%= project.description %></span></small>
-                    </a>
-                    <br>
-                    <small><a href="/projects/destroy/<%=project._id%>">Delete Project</a></small>
-                </li>
+                        <br>
+                        <small><a href="/projects/destroy/<%=project._id%>" id="delete-project-btn">Delete Project</a></small>
+                    </li>
+                </a>
             <% } %>
         </ul>
     </div>
