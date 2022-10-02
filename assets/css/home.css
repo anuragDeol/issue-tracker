@@ -93,6 +93,20 @@ body {
           body #projects-home #projects-list-container ul li #issue-a-tag:hover {
             transition: 0.1s;
             box-shadow: 0px 0px 10px whitesmoke; }
+          body #projects-home #projects-list-container ul li #delete-project-btn {
+            position: relative;
+            bottom: 225px;
+            opacity: 0;
+            padding: 3%;
+            left: 360px;
+            color: whitesmoke;
+            size: 1.2rem; }
+        body #projects-home #projects-list-container ul li:hover #delete-project-btn {
+          position: relative;
+          bottom: 235px;
+          opacity: 100%; }
+        body #projects-home #projects-list-container ul #delete-project-btn:hover {
+          color: #f18787; }
     body #projects-home #projects-list-container::-webkit-scrollbar {
       width: 0;
       /* Remove scrollbar space */

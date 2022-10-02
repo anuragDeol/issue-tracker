@@ -233,6 +233,22 @@ header {
     //         justify-content: space-around;
     //     }
     // }
+    #remove-filter-btn {
+        position: fixed;
+        top: 51.8%;
+        left: 84.8%;
+        transform: rotate(90deg);
+        padding: 0.3%;
+        border-radius: 3px;
+        background-color: rgb(35,35,35);
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover {
+            color:rgb(195, 195, 195);
+        }
+    }
 }
 
 #issue-list-container::-webkit-scrollbar {

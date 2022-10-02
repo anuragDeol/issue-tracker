@@ -128,15 +128,24 @@ body {
                         transition: 0.1s;
                         box-shadow: 0px 0px 10px whitesmoke;
                     }
-                    // #delete-project-btn {
-                    //     // position: absolute;
-                    //     position: relative;
-                    //     bottom: 30px;
-                    //     opacity: 0;
-                    // }
-                    // #issue-a-tag:hover #delete-project-btn {
-                    //     opacity: 100%;
-                    // }
+                    #delete-project-btn {
+                        // position: absolute;
+                        position: relative;
+                        bottom: 225px;
+                        opacity: 0;
+                        padding: 3%;
+                        left: 360px;
+                        color: whitesmoke;
+                        size: 1.2rem;
+                    }
+                }
+                li:hover #delete-project-btn {
+                    position: relative;
+                    bottom: 235px;
+                    opacity: 100%;
+                }
+                #delete-project-btn:hover {
+                    color: rgb(241, 135, 135);
                 }
             }
         }

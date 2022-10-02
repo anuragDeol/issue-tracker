@@ -46,9 +46,9 @@ module.exports.create = async function(req, res) {
 
 // delete project
 module.exports.destroy = async function(req, res) {
-    // delete the project (anyone can delete it)
+    // delete the project (anyone can delete it, as there is no authentication)
     let project = await Project.findByIdAndDelete(req.params.id);
-
+    
     // delete associated issues
     await Issue.deleteMany({project: req.params.id});
 

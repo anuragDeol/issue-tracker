@@ -16,10 +16,10 @@
     <!-- FORM::TO FILTER ISSUES on the basis of author-->
     <%- include('_filter-issue-form') -%>
 </div>
-
 <!-- SECTION::Issues of this Project -->
 <div id="issue-list-container" class="font-family-bahnschrift">
     <!-- SECTION::List of issues -->
+    <span id="remove-filter-btn" class="font-family-bahnschrift"><a href='/projects/<%=locals.project.id%>'>Remove Filter(s)</a></span>
     <table cellspacing="0">
         
         <col style="width:24%">
@@ -38,23 +38,24 @@
         </thead>
     <!-- <ul> -->
         <!-- TODO::add an if condition here, i.e if no issues are there for this prject, you may show no issues here :) -->
-        
+
         <!-- SECTION::showing all issues under current project -->
-        <tbody>
-            <%if(!locals.filteredIssues) { %>
-                <% for(issue of project.issues) { %>
-                    <%- include('_issue') -%>
-                <% } %>
-            <!-- SECTION::showing only filtered issues -->
-            <% } else { %>
-                <% for(issue of locals.filteredIssues) { %>
-                    <%- include('_issue') -%>
-                <% } %>
+    <tbody>
+        <%if(!locals.filteredIssues) { %>
+            <% for(issue of project.issues) { %>
+                <%- include('_issue') -%>
             <% } %>
+        <!-- SECTION::showing only filtered issues -->
+        <% } else { %>
+            <% for(issue of locals.filteredIssues) { %>
+                <%- include('_issue') -%>
+            <% } %>
+        <% } %>
         </tbody>
-    <!-- </ul> -->
+        <!-- </ul> -->
     </table>
-</div>
+        
+    </div>
 
 <footer>
     

@@ -170,6 +170,19 @@ header {
       #issue-list-container table #delete-issue-btn a:hover {
         color: #fa5b5b;
         transition: 0.1s; }
+  #issue-list-container #remove-filter-btn {
+    position: fixed;
+    top: 51.8%;
+    left: 84.8%;
+    transform: rotate(90deg);
+    padding: 0.3%;
+    border-radius: 3px;
+    background-color: #232323; }
+    #issue-list-container #remove-filter-btn a {
+      text-decoration: none;
+      color: white; }
+    #issue-list-container #remove-filter-btn a:hover {
+      color: #c3c3c3; }
 
 #issue-list-container::-webkit-scrollbar {
   width: 0;
