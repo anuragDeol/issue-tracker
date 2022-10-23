@@ -1,7 +1,5 @@
 <div id="search-issue-container">
     <form action="/projects/issues/search" method="POST">
-        <!-- <input type="text" name="title" placeholder="Search by Title">
-        <input type="text" name="description" placeholder="Search by Description"> -->
         <input type="text" name="search" placeholder="Search by Title/Description">
         <input type="hidden" name="project" value="<%=locals.project._id%>">
         <button id="search-issue-btn"><i class="fa-solid fa-magnifying-glass"></i></button>

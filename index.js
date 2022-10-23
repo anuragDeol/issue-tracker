@@ -1,17 +1,15 @@
-// TODO:: (2)Delete a project
-const express = require('express');
+require("dotenv").config(); // to read '.env' file
+const express = require("express");
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 const expressLayouts = require('express-ejs-layouts');
-const db = require('./config/mongoose');
+// const db = require('./config/mongoose');
 const bodyParser = require('body-parser');
 const sassMiddleware = require('node-sass-middleware');
-// const cookieParser = require('cookie-parser');
-// const session = require('express-session');
+const { default: mongoose } = require("mongoose");
 
 
 app.use(express.urlencoded({extended: false}));
-// app.use(cookieParser());
 
 
 app.use(sassMiddleware({
@@ -38,6 +36,16 @@ app.set('views', './views');
 
 // index router
 app.use('/', require('./routes'));
+
+// DB Connection
+mongoose
+    .connect(process.env.DATABASE, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => {
+        console.log("Success! MongodbAtlas DB Connected");
+    });
 
 app.listen(port, function(err) {
     if(err) {
