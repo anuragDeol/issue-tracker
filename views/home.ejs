@@ -11,7 +11,7 @@
     </div>
 
     <div id="projects-list-container">
-        <% if(!locals.project) { %>
+        <% if(locals.projects.length!=0) { %>
         <ul>
             <% for(project of locals.projects) { %>
                 <a href="/projects/<%=project._id%>" id="issue-a-tag">
@@ -20,7 +20,7 @@
                         <br>
                         Author: <small><span class="font-size-1point6rem"><%= project.author %></span></small>
                         <br>
-                        Descrip: <small><span class="font-size-1point4rem"><%= project.description %></span></small>
+                        Description: <small><span class="font-size-1point4rem"><%= project.description %></span></small>
                         <br>
                         <small><a href="/projects/destroy/<%=project._id%>" id="delete-project-btn"><i class="fa-solid fa-x"></i></a></small>
                     </li>
