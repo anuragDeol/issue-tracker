@@ -6,11 +6,6 @@ body {
         align-items: flex-start;
         background-color: rgb(94,114,128);
         background-color: rgb(62,62,62);
-        // max-height: 100vh;
-        // min-height: 100vh;
-        // background-image: url("../images/homepage_wallpaper.jpg");
-        // background-repeat: no-repeat;
-        // background-size: cover;
         height: 99.3vh;
         border: 2px solid black;
         #project-form-container {
@@ -81,22 +76,14 @@ body {
             }
         }
         #projects-list-container {
-            // display: flex;
-            // justify-content: center;
-            // align-items: center;
             width: 70%;
             height: 100%;
             overflow: scroll;
             background-color: rgb(35,35,35);
-            // background-image: linear-gradient(rgb(45,47,58), rgb(198,188,180));
             border: 1.5px solid black;
             ul {
-                // display: flex;
-                // flex-direction: column;
-                // width: 100%;
                 padding: 5%;
                 margin-top: 6.5%;
-                // border: 2px solid black;
                 li {
                     display: flex;
                     flex-direction: column;
@@ -106,8 +93,6 @@ body {
                     list-style: none;
                     margin: 5%;
                     background-color: rgb(35,35,35);
-                    // background-image: linear-gradient(rgb(255,87,96), rgb(255,82,154));
-                    // border: 2px solid black;
                     a {
                         text-decoration: none;
                         color: rgb(25, 36, 48);

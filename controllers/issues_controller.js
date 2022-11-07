@@ -135,10 +135,6 @@ module.exports.filter = async function(req, res) {
                     labels: req.body.filterLabel
                 });
             }
-            // filteredIssues = await Issue.find({
-            //     project: project._id,
-            //     labels: [req.body.filterLabel]
-            // });
         }
         //4. filter by both
         else {
@@ -160,19 +156,8 @@ module.exports.filter = async function(req, res) {
                     labels: req.body.filterLabel
                 });
             }
-            // filteredIssues = await Issue.find({
-            //     project: project._id,
-            //     author: req.body.filterAuthor,
-            //     labels: req.body.filterLabel
-            // });
         }
 
-        // if(filteredIssues.length==0) {
-        //     // if user removes the filter, then we need to show all issues
-        //     // setting filteredIssues as undefined, so that in our views file, we fetch all the issues from 'project.issues'
-        //     filteredIssues = undefined
-        //     console.log('entered into area where we shouldnt have');
-        // }
 
 
         return res.render('project_detail', {

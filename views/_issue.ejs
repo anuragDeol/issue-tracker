@@ -1,18 +1,16 @@
-<!-- <li> -->
-    <tr>
-        <td><%= issue.title %></td>
-        <td><%= issue.description %></td>
-        <td>
-            <%if(issue.labels && issue.labels.length>0) {%>
-            <!-- print array of labels -->
-            <%for(itr of issue.labels) {%>
-                <span><%= itr %></span>
-            <% } %>
-            <% } else { %>
-                <span>(No Label)</span>
-            <% } %>
-        </td>
-        <td><%= issue.author %></td>
-        <td id="delete-issue-btn"><a href="/projects/issues/destroy/<%=issue._id%>"<i class="fa-solid fa-trash"></i></a></td>
-    </tr>
-<!-- </li> -->
+<tr>
+    <td><%= issue.title %></td>
+    <td><%= issue.description %></td>
+    <td>
+        <%if(issue.labels && issue.labels.length>0) {%>
+        <!-- print array of labels -->
+        <%for(itr of issue.labels) {%>
+            <span><%= itr %></span>
+        <% } %>
+        <% } else { %>
+            <span>(No Label)</span>
+        <% } %>
+    </td>
+    <td><%= issue.author %></td>
+    <td id="delete-issue-btn"><a href="/projects/issues/destroy/<%=issue._id%>"<i class="fa-solid fa-trash"></i></a></td>
+</tr>
