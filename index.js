@@ -5,20 +5,20 @@ const port = process.env.PORT || 8000;
 const expressLayouts = require('express-ejs-layouts');
 // const db = require('./config/mongoose');
 const bodyParser = require('body-parser');
-const sassMiddleware = require('node-sass-middleware');
+// const sassMiddleware = require('node-sass-middleware');
 const { default: mongoose } = require("mongoose");
 
 
 app.use(express.urlencoded({extended: false}));
 
 
-app.use(sassMiddleware({
-    src: './assets/scss',   // our middleware will pick scss files from here to convert them into css
-    dest: './assets/css',
-    debug: true,
-    outputStyle: 'extended',    // we want our code in multiple lines
-    prefix: '/css'  // where should my server lookout for css files
-}));
+// app.use(sassMiddleware({
+//     src: './assets/scss',   // our middleware will pick scss files from here to convert them into css
+//     dest: './assets/css',
+//     debug: true,
+//     outputStyle: 'extended',    // we want our code in multiple lines
+//     prefix: '/css'  // where should my server lookout for css files
+// }));
 
 
 // middleware to parse the request

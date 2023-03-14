@@ -24,7 +24,7 @@ module.exports.create = async function(req, res) {
 
             // adding labels to the issue (if user has ticked the label)
             if(req.body.issueLabelOne == 'on') {
-                console.log(req.body.issueLabelOne);
+                // console.log(req.body.issueLabelOne);
                 issue.labels.push("Severity-1");
                 await issue.save();     // using await is important here, because we are doing save() multiple times to the document in same event loop
             }
@@ -44,7 +44,7 @@ module.exports.create = async function(req, res) {
             project.issues.push(issue);
             project.save();
 
-            console.log('Success! New issue created and added into the database');
+            // console.log('Success! New issue created and added into the database');
 
             // return res.redirect('back');     // after filtering when i create new issue, this is taking me back to /issues/filter with a get request, which is giving error
             
@@ -63,14 +63,14 @@ module.exports.create = async function(req, res) {
             const set = new Set(authors);
             const uniqueAuthors = [...set];
             
-            console.log(project.issues);
+            // console.log(project.issues);
             return res.render('project_detail', {
                 project: project,
                 authors: uniqueAuthors
             });
         }
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return res.redirect('back');
     }
 }
@@ -180,7 +180,7 @@ module.exports.search = async function(req, res) {
             project: req.body.project,
             title: req.body.search
         });
-        console.log(filteredIssues);
+        // console.log(filteredIssues);
         if(filteredIssues.length==0) {
             filteredIssues = await Issue.find({
                 project: req.body.project,
